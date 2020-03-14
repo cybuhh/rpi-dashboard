@@ -1,6 +1,11 @@
 import React from 'react';
-import './App.scss';
-import Statsblock from 'components/Statsblock/Statsblock';
+import classnames from 'classnames/bind';
+
+import Diskchart from 'components/Diskchart/Diskchart';
+
+import styles from './App.scss';
+
+const css = classnames.bind(styles);
 
 function App() {
   return (
@@ -9,8 +14,7 @@ function App() {
         <img src="https://duckduckgo.com/i/0c1be8ce.png" className="logo" alt="logo" />
       </header>
       <main>
-        <Statsblock title="stats title" />
-        <Statsblock title="other stats title" />
+        <Diskchart title="stats title" className={css('disk')} />
       </main>
     </div>
   );

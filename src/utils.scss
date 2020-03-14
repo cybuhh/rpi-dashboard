@@ -1,0 +1,7 @@
+@mixin breakpoint($type) {
+    @if $type == phone {
+        @media (max-width: 765px) {
+            @content;
+          }
+    }
+}

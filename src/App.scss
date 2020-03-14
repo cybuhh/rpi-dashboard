@@ -1,3 +1,5 @@
+@import './utils.scss';
+
 .logo {
   // height: 40vmin;
   height: 120px;
@@ -13,5 +15,12 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.disk {
+  width: 40%;
+  @media (max-width: 765px) {
+    width: 85%;
   }
 }

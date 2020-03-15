@@ -19,12 +19,13 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   externals: {
-    'chart.js': 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js',
+    'chart': 'chart.js',
+    'React': 'React',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/bundle.js',
-    publicPath: path.resolve(__dirname, 'public'),
+    publicPath: '',
     pathinfo: true,
   },
   devServer: {

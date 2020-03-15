@@ -2,6 +2,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -12,15 +15,15 @@ module.exports = {
         chunks: 'all',
         name: 'vendors',
     },
-    runtimeChunk: true,
   },
   resolve: {
     modules: ['node_modules', 'src'],
     extensions: ['.js', '.jsx'],
   },
   externals: {
-    'chart': 'chart.js',
-    'React': 'React',
+    'chart.js': 'Chart',
+    react: 'React',
+    'react-dom': 'ReactDOM'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -59,12 +62,12 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          loader: ['style-loader', 'css-loader']
+          loader: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
             test: /\.(scss|sass)$/,
             exclude: /\.module\.(scss|sass)$/,
-            loader: ['style-loader', 'css-loader', 'sass-loader']
+            loader: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
         },
         {
           loader: 'file-loader',
@@ -75,11 +78,15 @@ module.exports = {
     }]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      chunks: ['main']
     }),
+    new MiniCssExtractPlugin({
+      filename: 'css/styles.css',
+    }),
+    // new BundleAnalyzerPlugin(),
     // new webpack.HotModuleReplacementPlugin(),
 ],
 };

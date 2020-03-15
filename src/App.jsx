@@ -6,7 +6,6 @@ import Diskchart from 'components/Diskchart/Diskchart';
 import styles from './App.scss';
 
 const css = classnames.bind(styles);
-
 function App() {
   return (
     <div className="App">

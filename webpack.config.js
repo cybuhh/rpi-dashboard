@@ -78,6 +78,7 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
+      chunks: ['main']
     }),
     // new webpack.HotModuleReplacementPlugin(),
 ],

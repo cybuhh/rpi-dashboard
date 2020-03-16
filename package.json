@@ -4,8 +4,10 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server --config webpack.config.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "dist-server": "http-server dist"
   },
   "browserslist": {
     "production": [
@@ -23,6 +25,13 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "chart.js": "^2.9.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-chartjs-2": "^2.9.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
@@ -32,7 +41,6 @@
     "@testing-library/user-event": "^7.2.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
-    "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
@@ -48,13 +56,10 @@
     "eslint-plugin-react-hooks": "^2.5.0",
     "file-loader": "^5.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.12.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.13.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "url-loader": "^3.0.0",

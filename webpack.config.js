@@ -23,7 +23,7 @@ module.exports = {
   externals: {
     'chart.js': 'Chart',
     react: 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

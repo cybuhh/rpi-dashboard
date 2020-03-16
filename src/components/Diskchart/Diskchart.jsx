@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Pie } from 'react-chartjs-2';
 import classnames from 'classnames/bind';
+import Chart from 'chart.js';
 
 import styles from './Diskchart.scss';
 
 const css = classnames.bind(styles);
 
-
-
 function Diskchart({ title, className }) {
+    const ref = useRef();
+    const [chart, setChart] = useState();
+
     const data = {
         labels: ['Used', 'Free'],
         datasets: [{
@@ -35,10 +36,19 @@ function Diskchart({ title, className }) {
         }]
     };
 
+    useEffect(() => {
+        if (!chart) {
+            setChart(new Chart(ref.current, {
+                data,
+                type: 'pie',
+            }));
+        }
+    });
+
     return (
         <div className={className}>
             {title}
-            <Pie data={data} className={css('chart')} />
+            <canvas ref={ref} className={css('chart')} />
         </div>
     );
 }
